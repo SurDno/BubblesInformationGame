@@ -20,10 +20,12 @@ public class LineRendererUi : MonoBehaviour {
 
         m_myTransform.position = midpoint;
 
-        var scale = scalerObject is IScaler scaler ? scaler.Scale : 1f;
+        var customScale = scalerObject is IScaler scaler ? scaler.Scale : 1f;
+        var canvasScale = CanvasManager.Instance.GetScalingFactor();
+        
         var dir = point1 - point2;
         m_myTransform.rotation = Quaternion.Euler(0f, 0f, Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg);
-        m_myTransform.sizeDelta = new Vector2(Vector2.Distance(node1.position, node2.position) / scale, linkWidth);
+        m_myTransform.sizeDelta = new Vector2(Vector2.Distance(node1.position, node2.position) / customScale * canvasScale, linkWidth);
     }
 
     public void Initialize(RectTransform node1, RectTransform node2) {
