@@ -5,6 +5,9 @@ Shader "UI/CircleBackground"
         [PerRendererData] _MainTex ("Sprite Texture", 2D) = "white" {}
         _InversionAmount ("Inversion Amount", Range(0,1)) = 0
         _EdgeSmoothness ("Edge Smoothness", Range(0.001, 0.015)) = 0.02
+        _WaveSpeed ("Wave Speed", Range(0, 5)) = 1
+        _WaveAmount ("Wave Amount", Range(0, 0.1)) = 0.02
+        _WaveFrequency("Wave Frequency", Range(1, 12)) = 6
         
         [HideInInspector] _StencilComp ("Stencil Comparison", Float) = 8
         [HideInInspector] _Stencil ("Stencil ID", Float) = 0
@@ -64,6 +67,9 @@ Shader "UI/CircleBackground"
 
             float _InversionAmount;
             float _EdgeSmoothness;
+            float _WaveSpeed;
+            float _WaveAmount;
+            float _WaveFrequency;
             sampler2D _MainTex;
             float4 _MainTex_ST;
             float4 _ClipRect;
@@ -84,12 +90,17 @@ Shader "UI/CircleBackground"
             fixed4 frag(v2f IN) : SV_Target
             {
                 float2 center = float2(0.5, 0.5);
-                float dist = distance(IN.texcoord, center);
+                float time = _Time.y * _WaveSpeed;
+                float angle = atan2(IN.texcoord.y - center.y, IN.texcoord.x - center.x);
+                // Normalize angle to [0, 2π] range
+                if (angle < 0) angle += 2 * UNITY_PI;
+                float wave = sin(angle * _WaveFrequency + time) * _WaveAmount;
+                
+                float dist = distance(IN.texcoord, center) + wave;
                 
                 float2 centeredUV = IN.texcoord - 0.5;
                 centeredUV *= 1.85; 
                 float2 scaledUV = centeredUV + 0.5;
-                
                 
                 fixed4 texColor = tex2D(_MainTex, scaledUV);
                 texColor = fixed4(1, 1, 1, texColor.a);

@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: TestInformation
   m_EditorClassIdentifier: 
   text: This is a test info.
-  sprite: {fileID: 21300000, guid: 12ab868750b97014fbff5dacaa3d3675, type: 3}
+  sprite: {fileID: 21300000, guid: ee0321d648d087640bc7693eac0292b5, type: 3}
   isTrue: 1
