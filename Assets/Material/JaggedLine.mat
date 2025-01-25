@@ -68,17 +68,21 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _JaggedAmount: 0.1
+    - _Height: 1283.3
+    - _JaggedAmount: 0
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
-    - _Speed: 1
+    - _Speed: 2.24
     - _SrcBlend: 1
-    - _Thickness: 0.1
+    - _Thickness: 0.114
     - _UVSec: 0
+    - _WaveFrequency: 20
+    - _WaveHeight: 0.01
+    - _Width: 99.2
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
