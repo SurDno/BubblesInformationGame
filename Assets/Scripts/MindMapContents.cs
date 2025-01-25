@@ -3,7 +3,10 @@ using Interfaces;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class MindMapContents : DraggableElement, IScaler {
+public class MindMapContents : DraggableElement, IScaler, IPointerClickHandler {
+    public static MindMapContents Instance { get; private set; }
+    protected void OnEnable() => Instance = this;
+    
     public float Scale { get; set; } = 1f;
     
     [Header("Settings")]
@@ -19,4 +22,12 @@ public class MindMapContents : DraggableElement, IScaler {
         return data.pointerEnter == null || data.pointerEnter.GetComponent<MindMapNode>() == null;
     }
 
+    public override void OnBeginDrag(PointerEventData data) {
+        base.OnBeginDrag(data);
+        MindMapNode.DisableLinkingNode();
+    }
+    
+    public void OnPointerClick(PointerEventData eventData) {
+        MindMapNode.DisableLinkingNode();
+    }
 }

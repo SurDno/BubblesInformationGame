@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Information", menuName = "Information")]
+[CreateAssetMenu(fileName = "Information", menuName = "Information")]
 public class Information : ScriptableObject {
 	[SerializeField] private string text;
 	[SerializeField] private Sprite sprite;

@@ -5,6 +5,17 @@
 
     public class CanvasManager : Singleton<CanvasManager> {
         [SerializeField] private CanvasScaler _canvasScaler;
+        [SerializeField] private Canvas _canvas;
 
         public float GetScalingFactor() => _canvasScaler.referenceResolution.y / Screen.height;
+        
+        public Vector2 GetMousePositionInRect(RectTransform obj) {
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(
+                obj, 
+                Input.mousePosition,
+                null, // No camera needed for Overlay
+                out var mousePos
+            );
+            return mousePos;
+        }
     }
