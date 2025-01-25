@@ -1,13 +1,15 @@
 using UnityEngine;
+using UnityEngine.Assertions;
 using UnityEngine.EventSystems;
 
 namespace Abstract {
     public abstract class DraggableElement : MonoBehaviour, IBeginDragHandler, IDragHandler {
-        private RectTransform _rect;
+        protected RectTransform _rect;
         private Vector2 _offset;
     
         protected virtual void Awake() {
             _rect = GetComponent<RectTransform>();
+            Assert.IsNotNull(_rect);
         }
     
         public virtual void OnBeginDrag(PointerEventData data) {
