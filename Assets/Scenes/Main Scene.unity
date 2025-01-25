@@ -1186,6 +1186,10 @@ PrefabInstance:
       value: News Worthy
       objectReference: {fileID: 0}
     - target: {fileID: 7667537755859078873, guid: eeef109df264ef74d9d1a01cd304873e, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 95337e6fd3024cd429fd98454381e906, type: 3}
+    - target: {fileID: 7667537755859078873, guid: eeef109df264ef74d9d1a01cd304873e, type: 3}
       propertyPath: m_FontData.m_VerticalOverflow
       value: 1
       objectReference: {fileID: 0}
@@ -1439,7 +1443,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.6522083, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -2.210022, y: 0.00079345703}
+  m_AnchoredPosition: {x: -2.209961, y: 0.0007324219}
   m_SizeDelta: {x: 4.419983, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1039961443
@@ -2334,7 +2338,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0.6522083, y: 1}
-  m_AnchoredPosition: {x: -1.8292847, y: 0}
+  m_AnchoredPosition: {x: -1.8293457, y: 0}
   m_SizeDelta: {x: -3.6586914, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1422009550
@@ -2544,6 +2548,10 @@ PrefabInstance:
       propertyPath: m_Text
       value: Wallet
       objectReference: {fileID: 0}
+    - target: {fileID: 7667537755859078873, guid: eeef109df264ef74d9d1a01cd304873e, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 95337e6fd3024cd429fd98454381e906, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2734,7 +2742,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 95337e6fd3024cd429fd98454381e906, type: 3}
     m_FontSize: 35
     m_FontStyle: 0
     m_BestFit: 0
@@ -2851,6 +2859,10 @@ PrefabInstance:
       propertyPath: m_Text
       value: Mail
       objectReference: {fileID: 0}
+    - target: {fileID: 7667537755859078873, guid: eeef109df264ef74d9d1a01cd304873e, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 95337e6fd3024cd429fd98454381e906, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2953,6 +2965,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Button Title
       objectReference: {fileID: 0}
+    - target: {fileID: 7667537755859078873, guid: eeef109df264ef74d9d1a01cd304873e, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 95337e6fd3024cd429fd98454381e906, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
