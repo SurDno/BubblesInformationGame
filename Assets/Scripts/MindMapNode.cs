@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using Abstract;
 using Unity.VisualScripting;
@@ -21,13 +22,46 @@ public class MindMapNode : DraggableElement, IPointerEnterHandler, IPointerExitH
     private static LineRendererUi tempRenderer;
     public RectTransform RectTransform { get; private set; }
 
+    private static readonly int InversionAmount = Shader.PropertyToID("_InversionAmount");
+    private Material _material;
+    private Coroutine _inversionCoroutine;
+    [SerializeField] private float transitionDuration = 0.3f;
+    
     protected override void Awake() {
         base.Awake();
         _image = GetComponent<Image>();
         Assert.IsNotNull(_image);
         RectTransform = GetComponent<RectTransform>();
         Initialize(DELETEME);
+        _material = new Material(_image.material);
+        _image.material = _material;
     }
+    
+    public void UpdateNodeState() {
+        bool isLinked = Links.Count > 0;
+        float targetInversion = isLinked ? 0f : 1f;
+
+        if (_inversionCoroutine != null)
+            StopCoroutine(_inversionCoroutine);
+        _inversionCoroutine = StartCoroutine(TransitionInversionAmount(targetInversion));
+    }
+    
+    private IEnumerator TransitionInversionAmount(float targetValue) {
+        float startValue = _material.GetFloat(InversionAmount);
+        float elapsedTime = 0f;
+
+        while (elapsedTime < transitionDuration) {
+            elapsedTime += Time.deltaTime;
+            float t = elapsedTime / transitionDuration;
+            float currentValue = Mathf.Lerp(startValue, targetValue, t);
+            _material.SetFloat(InversionAmount, currentValue);
+            yield return null;
+        }
+
+        _material.SetFloat(InversionAmount, targetValue);
+        _inversionCoroutine = null;
+    }
+
     
     public void Initialize(Information information) {
         if(_initialized) throw new Exception("MindMapNode already initialized");
@@ -55,7 +89,8 @@ public class MindMapNode : DraggableElement, IPointerEnterHandler, IPointerExitH
         switch (eventData.button) {
             case PointerEventData.InputButton.Left:
                 if (!linkingNode) return;
-
+                if (linkingNode == this) return;
+                
                 foreach (var (lr, mmn) in Links) {
                     if (mmn != linkingNode) continue;
                     DisableLinkingNode();
@@ -64,9 +99,10 @@ public class MindMapNode : DraggableElement, IPointerEnterHandler, IPointerExitH
                 var lineRendererUi = Instantiate(linkPrefab, transform.parent)
                     .Initialize(linkingNode.RectTransform, RectTransform);
                 lineRendererUi.transform.SetAsFirstSibling();
-                Debug.Log(lineRendererUi, linkingNode);
                 Links.Add((lineRendererUi, linkingNode));
                 linkingNode.Links.Add((lineRendererUi, this));
+                UpdateNodeState();
+                linkingNode.UpdateNodeState();
                 DisableLinkingNode();
                 break;
             case PointerEventData.InputButton.Right:
@@ -78,18 +114,26 @@ public class MindMapNode : DraggableElement, IPointerEnterHandler, IPointerExitH
         }
     }
 
+    public void RemoveLink(LineRendererUi lineRendererUi) {
+        for (var index = 0; index < Links.Count; index++) {
+            var (lr, mmn) = Links[index];
+            if (lr == lineRendererUi) {
+                Links.RemoveAt(index);
+                UpdateNodeState();
+                mmn.UpdateNodeState();
+                break;
+            }
+        }
+    }
+
+    private void OnDestroy() {
+        if (_material != null)
+            Destroy(_material);
+    }
+
     public static void DisableLinkingNode() {
         linkingNode = null;
         if(tempRenderer != null && tempRenderer.gameObject != null)
              Destroy(tempRenderer.gameObject);
-    }
-
-    public void RemoveLink(LineRendererUi lineRendererUi) {
-        for (var index = 0; index < Links.Count; index++) {
-            var (lr, mmn) = Links[index];
-            if (lr == lineRendererUi) 
-                Links.RemoveAt(index);
-            break;
-        }
     }
 }

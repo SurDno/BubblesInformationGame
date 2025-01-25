@@ -84,9 +84,9 @@ Material:
     - _StencilReadMask: 255
     - _StencilWriteMask: 255
     - _UVSec: 0
-    - _WaveAmount: 0.0039
+    - _WaveAmount: 0.0049
     - _WaveFrequency: 12
-    - _WaveSpeed: 2.71
+    - _WaveSpeed: 4.98
     - _ZWrite: 1
     m_Colors:
     - _CircleColor: {r: 0, g: 0, b: 0, a: 1}
