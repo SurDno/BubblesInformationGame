@@ -86,7 +86,17 @@ Shader "UI/CircleBackground"
                 float2 center = float2(0.5, 0.5);
                 float dist = distance(IN.texcoord, center);
                 
-                fixed4 texColor = tex2D(_MainTex, IN.texcoord);
+                float2 centeredUV = IN.texcoord - 0.5;
+                centeredUV *= 1.85; 
+                float2 scaledUV = centeredUV + 0.5;
+                
+                
+                fixed4 texColor = tex2D(_MainTex, scaledUV);
+                texColor = fixed4(1, 1, 1, texColor.a);
+                
+                if (scaledUV.x < 0 || scaledUV.x > 1 || scaledUV.y < 0 || scaledUV.y > 1) {
+                    texColor = fixed4(0, 0, 0, 1);
+                }
                 fixed4 color;
                 
                 float radius = 0.38;
