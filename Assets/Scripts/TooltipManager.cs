@@ -13,7 +13,14 @@ public class TooltipManager : Singleton<TooltipManager> {
         selectedNode = node;
         tooltipObject.gameObject.SetActive(true);
         tooltipText.text = node.Information.Text;
-        tooltipObject.position = node.RectTransform.position;
+        var left = Input.mousePosition.x < Screen.width / 2f;
+        var up = Input.mousePosition.y < Screen.height / 2f;
+
+        var newPos = node.RectTransform.position;
+        newPos.x += (left ? node.RectTransform.rect.width*3 : -node.RectTransform.rect.width*3);
+        newPos.y += (up ? node.RectTransform.rect.height : -node.RectTransform.rect.height);
+
+        tooltipObject.position = newPos;
     }
 
     public void UnselectNode(MindMapNode node) {
