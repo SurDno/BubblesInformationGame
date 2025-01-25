@@ -921,6 +921,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6877377738232126588, guid: d5828ea88ca012c4f86fd719f0a664a0, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 95337e6fd3024cd429fd98454381e906, type: 3}
     - target: {fileID: 8180247217011572592, guid: d5828ea88ca012c4f86fd719f0a664a0, type: 3}
       propertyPath: m_Name
       value: Contact (4)
@@ -1855,6 +1859,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6877377738232126588, guid: d5828ea88ca012c4f86fd719f0a664a0, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 95337e6fd3024cd429fd98454381e906, type: 3}
     - target: {fileID: 8180247217011572592, guid: d5828ea88ca012c4f86fd719f0a664a0, type: 3}
       propertyPath: m_Name
       value: Contact (2)
@@ -2892,6 +2900,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6877377738232126588, guid: d5828ea88ca012c4f86fd719f0a664a0, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 95337e6fd3024cd429fd98454381e906, type: 3}
     - target: {fileID: 8180247217011572592, guid: d5828ea88ca012c4f86fd719f0a664a0, type: 3}
       propertyPath: m_Name
       value: Contact (1)
@@ -2994,6 +3006,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6877377738232126588, guid: d5828ea88ca012c4f86fd719f0a664a0, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 95337e6fd3024cd429fd98454381e906, type: 3}
     - target: {fileID: 8180247217011572592, guid: d5828ea88ca012c4f86fd719f0a664a0, type: 3}
       propertyPath: m_Name
       value: Contact (3)
@@ -3206,6 +3222,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6877377738232126588, guid: d5828ea88ca012c4f86fd719f0a664a0, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 95337e6fd3024cd429fd98454381e906, type: 3}
     - target: {fileID: 8180247217011572592, guid: d5828ea88ca012c4f86fd719f0a664a0, type: 3}
       propertyPath: m_Name
       value: Contact

@@ -2,7 +2,6 @@ using Interfaces;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.EventSystems;
-using UnityEngine.Serialization;
 
 namespace Abstract {
     public abstract class DraggableElement : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler {

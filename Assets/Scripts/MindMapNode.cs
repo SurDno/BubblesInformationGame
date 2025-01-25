@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Abstract;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.EventSystems;
@@ -91,7 +90,7 @@ public class MindMapNode : DraggableElement, IPointerEnterHandler, IPointerExitH
                 if (!linkingNode) return;
                 if (linkingNode == this) return;
                 
-                foreach (var (lr, mmn) in Links) {
+                foreach (var (_, mmn) in Links) {
                     if (mmn != linkingNode) continue;
                     DisableLinkingNode();
                     return;

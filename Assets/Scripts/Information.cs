@@ -5,6 +5,7 @@ public class Information : ScriptableObject {
 	[SerializeField] private string text;
 	[SerializeField] private Sprite sprite;
 	[SerializeField] private bool isTrue;
+	[SerializeField] private Information connectedInfo;
 	
 	public string Text => text;
 	public Sprite Sprite => sprite;
