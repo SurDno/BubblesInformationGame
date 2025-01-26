@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   noteObjects:
   - _title: baby, did you forget to take your meds
-    _content: '                                                                                                                      
-      lamotrigine - monday wednesday friday. Valporic acid - saturday sunday'
+    _content: -------------------------------------------------------------- lamotrigine
+      & valporic acid MT
     _information: {fileID: 11400000, guid: 788fa6f084315b94db6c0389af705aed, type: 2}

@@ -12,11 +12,7 @@ public class NodeManager : Singleton<NodeManager> {
 	public List<Information> DELETE_ME;
 
 	private void Awake() {
-		//AddNode(initialNode, new Vector2(500, 500));
-		foreach (var information in DELETE_ME) {
-			if (information.IsConclusion) continue;
-			AddNode(information);
-		}
+		AddNode(initialNode, new Vector2(500, 500));
 	}
 	
 	public MindMapNode AddNode(Information info, Vector2? position = null) {

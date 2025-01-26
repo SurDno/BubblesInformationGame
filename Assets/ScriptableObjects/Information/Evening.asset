@@ -16,6 +16,8 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: bf0627026ec2f2e44b811d0725df76ff, type: 3}
   isTrue: 1
   isConclusion: 0
-  connectedInfo: []
-  conclusions: []
+  connectedInfo:
+  - {fileID: 11400000, guid: 63ddf2b178cc0dd4aa30a9323959826d, type: 2}
+  conclusions:
+  - {fileID: 11400000, guid: f7104a5f1ecf9c343ba03b01a9913771, type: 2}
   prereqs: []

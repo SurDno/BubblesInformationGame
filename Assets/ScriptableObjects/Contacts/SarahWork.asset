@@ -22,7 +22,7 @@ MonoBehaviour:
     _isVictim: 1
     _textInformation: {fileID: 11400000, guid: 5a231c813d73e0142b4b644dbc7b3858, type: 2}
   - _text: By the way, would you be able to pick me up Sunday? My car broke down.
-    _isVictim: 1
+    _isVictim: 0
     _textInformation: {fileID: 0}
   - _text: sry i cant rly drive
     _isVictim: 1

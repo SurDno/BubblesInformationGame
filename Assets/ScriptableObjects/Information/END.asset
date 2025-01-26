@@ -10,18 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bee643dee328a1c41a8abccbb6fed464, type: 3}
-  m_Name: TriedFakeMoney
+  m_Name: END
   m_EditorClassIdentifier: 
-  text: The victim could have tried to use fake money for evening meeting.
-  sprite: {fileID: 21300000, guid: cce6f7961a3a566459d85d849a242ddc, type: 3}
-  isTrue: 1
+  text: Victim killed after handing fake money, killer used victim's phone
+  sprite: {fileID: 21300000, guid: 1052f186275bd1d4faf5ee447ac3fa7f, type: 3}
+  isTrue: 0
   isConclusion: 1
-  connectedInfo:
-  - {fileID: 11400000, guid: 4a4f4463b69b0b54da5ae5033914a331, type: 2}
-  - {fileID: 11400000, guid: 13363cfc09bb66f489d23e5e163c59aa, type: 2}
-  conclusions:
-  - {fileID: 11400000, guid: 69a7a4d0f006f074e803ada9c748b07e, type: 2}
+  connectedInfo: []
+  conclusions: []
   prereqs:
-  - {fileID: 11400000, guid: 63ddf2b178cc0dd4aa30a9323959826d, type: 2}
-  - {fileID: 11400000, guid: bcc8ec04ef09aa045b54c8b349568d58, type: 2}
-  - {fileID: 11400000, guid: 2da795cd7fb83324b9b1f37ab03daae0, type: 2}
+  - {fileID: 11400000, guid: 4a4f4463b69b0b54da5ae5033914a331, type: 2}
+  - {fileID: 11400000, guid: f7104a5f1ecf9c343ba03b01a9913771, type: 2}
+  - {fileID: 11400000, guid: 13363cfc09bb66f489d23e5e163c59aa, type: 2}
