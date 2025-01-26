@@ -326,6 +326,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scalerObject: {fileID: 0}
+  AudioClip: {fileID: 8300000, guid: 292b71f0da6cf304ea13f23d08e010a7, type: 3}
+  AudioGroup: {fileID: 9142010892608703014, guid: c8a8e6b63a71ffe40ad05307344d65b3, type: 2}
+  AudioVolume: 1
+  AudioClipError: {fileID: 8300000, guid: ba11869bac735c149bf32cbda8278983, type: 3}
+  AudioGroupError: {fileID: 9142010892608703014, guid: c8a8e6b63a71ffe40ad05307344d65b3, type: 2}
 --- !u!1 &5950811154146753775
 GameObject:
   m_ObjectHideFlags: 0

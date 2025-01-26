@@ -89,6 +89,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scalerObject: {fileID: 0}
-  DELETEME: {fileID: 11400000, guid: 09b0bbf710b73634980e32f196a8850e, type: 2}
   linkPrefab: {fileID: 90178019698291251, guid: 2ebd05898f53dec439e36fe7a49c237f, type: 3}
   transitionDuration: 0.3
+  AudioVolume: 1
+  AudioClipError: {fileID: 8300000, guid: ba11869bac735c149bf32cbda8278983, type: 3}
+  AudioGroupError: {fileID: 9142010892608703014, guid: c8a8e6b63a71ffe40ad05307344d65b3, type: 2}

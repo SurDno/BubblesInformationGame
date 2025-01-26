@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Abstract;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.EventSystems;
 
 public abstract class DraggableMindMapElement : DraggableElement {
@@ -9,8 +10,14 @@ public abstract class DraggableMindMapElement : DraggableElement {
 	private Vector2 _originalPosition;
 	private int _originalSiblingIndex;
 	private GameObject _placeholder;
+	public AudioClip AudioClip;
+	public AudioMixerGroup AudioGroup;
+	public float AudioVolume = 1f;
 
-	protected override void Awake() {
+    public AudioClip AudioClipError;
+    public AudioMixerGroup AudioGroupError;
+
+    protected override void Awake() {
 		base.Awake();
 		_originalParent = transform.parent;
 		_originalPosition = _rect.anchoredPosition;
@@ -31,6 +38,7 @@ public abstract class DraggableMindMapElement : DraggableElement {
 		placeholderRect.SetSiblingIndex(_originalSiblingIndex);
 		transform.SetParent(CanvasManager.Instance.GetCanvasTransform());
 		base.OnBeginDrag(data);
+		SFXManager.PlaySound(AudioClip, AudioGroup, AudioVolume);
 	}
 
 	public override void OnEndDrag(PointerEventData eventData) {
@@ -42,11 +50,13 @@ public abstract class DraggableMindMapElement : DraggableElement {
 
 		if (GetInformation() == null) {
 			HintManager.Instance.ShowErrorMessage();
-			return;
+			SFXManager.PlaySound(AudioClipError, AudioGroupError, AudioVolume);
+            return;
 		}
 
 		if (NodeManager.Instance.HasNode(GetInformation())) {
 			HintManager.Instance.ShowDuplicateMessage();
+			SFXManager.PlaySound(AudioClipError, AudioGroupError, AudioVolume);
 			return;
 		}
 

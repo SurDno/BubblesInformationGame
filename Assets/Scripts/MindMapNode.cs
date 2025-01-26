@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Abstract;
 using UnityEngine;
 using UnityEngine.Assertions;
+using UnityEngine.Audio;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
@@ -28,7 +29,12 @@ public class MindMapNode : DraggableElement, IPointerEnterHandler, IPointerExitH
     [SerializeField] private float transitionDuration = 0.3f;
 
     private bool _animated;
-    
+
+    public float AudioVolume = 1f;
+
+    public AudioClip AudioClipError;
+    public AudioMixerGroup AudioGroupError;
+
     protected override void Awake() {
         base.Awake();
         _image = GetComponent<Image>();
@@ -117,12 +123,14 @@ public class MindMapNode : DraggableElement, IPointerEnterHandler, IPointerExitH
                 foreach (var (_, mmn) in Links) {
                     if (mmn != linkingNode) continue;
                     DisableLinkingNode();
+                    SFXManager.PlaySound(AudioClipError, AudioGroupError, AudioVolume);
                     return;
                 }
 
                 if (!Information.GetConnectedInfo().Contains(linkingNode.Information)) {
                     HintManager.Instance.ShowUnrelatedMessage();
                     DisableLinkingNode();
+                    SFXManager.PlaySound(AudioClipError, AudioGroupError, AudioVolume);
                     return;
                 }
                 
@@ -165,7 +173,7 @@ public class MindMapNode : DraggableElement, IPointerEnterHandler, IPointerExitH
 
     public static void DisableLinkingNode() {
         linkingNode = null;
-        if(tempRenderer != null && tempRenderer.gameObject != null)
+        if (tempRenderer != null && tempRenderer.gameObject != null)
              Destroy(tempRenderer.gameObject);
     }
 }
