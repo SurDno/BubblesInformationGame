@@ -28,10 +28,12 @@ public class NoteCreation : MonoBehaviour
             var note = Instantiate(_notePrefab, _noteContentFolder);
             note.GetComponent<NoteInfoDraggable>().NoteInfo = noteObject;
             var child1 = note.transform.GetChild(0);
-            var child2 = child1.transform.GetChild(1);
-            var child3 = child1.transform.GetChild(2);
-            child2.GetComponent<Text>().text = noteObject.GetTitle();
-            child3.GetComponent<Text>().text = noteObject.GetContent();
+            var child2 = note.transform.GetChild(1);
+            child1.GetComponentInChildren<Text>().text = noteObject.GetContent();
+            child1.GetComponentInChildren<MesageTextBox>().Init();
+
+            child2.GetComponentInChildren<Text>().text = noteObject.GetTitle();
+            child2.GetComponentInChildren<MesageTextBox>().Init();
         }
     }
 }

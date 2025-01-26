@@ -16,6 +16,7 @@ public class HistoryCreation : MonoBehaviour
             var newHistoryObject = Instantiate(historyObjectPrefab, historyObjectParent);
             newHistoryObject.GetComponent<HistoryInfoDraggable>().historyObject = historyObject;
             newHistoryObject.GetComponentInChildren<Text>().text = historyObject.GetSearchHistory();
+            newHistoryObject.GetComponentInChildren<MesageTextBox>().Init();
         }
     }
 }

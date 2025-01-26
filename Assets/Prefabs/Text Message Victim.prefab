@@ -140,6 +140,7 @@ GameObject:
   - component: {fileID: 2888622022321357172}
   - component: {fileID: 5447563042591268825}
   - component: {fileID: 1597749828688209105}
+  - component: {fileID: 6395362001598079084}
   m_Layer: 5
   m_Name: Text Message Victim
   m_TagString: Untagged
@@ -205,3 +206,24 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1.9
+--- !u!114 &6395362001598079084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3182816634104005273}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b9e5cd6664016549b4f2ae421273703, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mMaxWidth: 200
+  mText: {fileID: 0}
+  bDebugging: 0
+  mPerferredWidth: 0
+  mPerferredHeight: 0
+  mDebugWidth: 0
+  mDebugHeight: 0
+  mDebugAnchorPos: {x: 0, y: 0}
+  mPos: {x: 0, y: 0}

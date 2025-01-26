@@ -35,6 +35,7 @@ public class CreateTextMessages : MonoBehaviour
             if (_textMessage.GetComponentInChildren<Text>() == null) Debug.Log("Fuck");
             _textMessage.GetComponentInChildren<Text>().text = _message.Text;
             _textMessage.TextMessageInfo = _message;
+            _textMessage.GetComponentInChildren<MesageTextBox>().Init();
         }
     }
 }
