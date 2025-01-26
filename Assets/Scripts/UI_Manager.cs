@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class UI_Manager : MonoBehaviour
@@ -5,28 +6,35 @@ public class UI_Manager : MonoBehaviour
     [SerializeField] private GameObject BackButton;
     [SerializeField] private GameObject rootMenu;
     [SerializeField] private GameObject currentMenu;
-    private GameObject previousMenu;
+
+
+    [SerializeField] private Stack<GameObject> mMenuStack = new Stack<GameObject>();
 
     public void OpenMenu(GameObject menuToOpen)
     {
-        Debug.Log("OpenMenu");
         currentMenu.SetActive(false);
-        previousMenu = currentMenu;
+        mMenuStack.Push(currentMenu);
         currentMenu = menuToOpen;
-        currentMenu.SetActive(true);
+        currentMenu.SetActive(true);    
 
         if(menuToOpen == rootMenu) BackButton.SetActive(false);
         else BackButton.SetActive(true);
     }
 
-    public void GoBack() { 
+    public void GoBack() 
+    {
         currentMenu.SetActive(false);
-        var newPreviousMenu = currentMenu;
-        currentMenu = previousMenu;
+        if(mMenuStack.Count > 0)
+        {
+            currentMenu = mMenuStack.Peek();
+            mMenuStack.Pop();
+        }
         currentMenu.SetActive(true);
-        previousMenu = newPreviousMenu;
+
 
         if (currentMenu == rootMenu) BackButton.SetActive(false);
         else BackButton.SetActive(true);
     }
+
+
 }

@@ -39,7 +39,8 @@ public class ContactCreation : MonoBehaviour
             GameObject message_content = Instantiate(gMessagePanelPrefab, gMessageFolder);
 
             gameObj.name = "Contact - " + contactObject.ContactName;  
-            message_content.name = contactObject.ContactName + "-- Message Content";
+            message_content.name = contactObject.ContactName + " " +
+                "-- Message Content";
 
             if(message_content.TryGetComponent<CreateTextMessages>(out CreateTextMessages message))
             {
