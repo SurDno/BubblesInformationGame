@@ -8,7 +8,6 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class MindMapNode : DraggableElement, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler {
-    [SerializeField] private Information DELETEME;
     public Information Information { get; private set; }
     private bool _initialized;
 
@@ -34,7 +33,6 @@ public class MindMapNode : DraggableElement, IPointerEnterHandler, IPointerExitH
         _image = GetComponent<Image>();
         Assert.IsNotNull(_image);
         RectTransform = GetComponent<RectTransform>();
-        Initialize(DELETEME);
         _material = new Material(_image.material);
         _image.material = _material;
         _material.SetFloat("_PopupProgress", 0f);

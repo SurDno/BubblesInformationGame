@@ -47,7 +47,7 @@ public class ContactCreation : MonoBehaviour
             }
 
             //try find child with contact name text  
-            gameObj.GetComponentInChildren<Text>().text = contactObject.ContactName; //<-- not ideal
+            gameObj.GetComponentInChildren<Text>().text = contactObject.ContactName; //<-- not ideal (terrible)
             
             if(gameObj.TryGetComponent<Button>(out Button button))
             {
