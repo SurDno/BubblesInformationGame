@@ -13,7 +13,7 @@ public struct Battery
      */
     [SerializeField] private float mLife;
     [SerializeField] private float mMaxTime;
-    [SerializeField, Range(0.0f, 10.0f)] private float mCurrTime;
+    [SerializeField] private float mCurrTime;
 
     [SerializeField] private Image mImageUI;
 
@@ -109,7 +109,7 @@ public struct Battery
     {
         if(mAudioList.Count < 0)
             return;
-        int mRound = (int)MathF.Floor(lvl);
+        int mRound = (int)MathF.Floor(lvl * 100);
         int mIndex;
         switch(mRound)
         {
@@ -150,16 +150,16 @@ public class MobileTopBar : MonoBehaviour
         if(!mTimeText)
             mTimeText = GetComponentInChildren<Text>();
 
-        mBattery.Def_Init();    
-        if(!mBattery.ImageUI)
-        {
-            if(GameObject.FindGameObjectWithTag("BatteryFill").
-                                          TryGetComponent<Image>(out Image image_com))
-            {
-                mBattery.ImageUI = image_com;
-            }
+        //mBattery.Def_Init();    
+        //if(!mBattery.ImageUI)
+        //{
+        //    if(GameObject.FindGameObjectWithTag("BatteryFill").
+        //                                  TryGetComponent<Image>(out Image image_com))
+        //    {
+        //        mBattery.ImageUI = image_com;
+        //    }
 
-        }
+        //}
 
        
     }
