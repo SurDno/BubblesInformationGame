@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76439df87adb3544d91e05cee0c677b3, type: 3}
   m_Name: ContactA
   m_EditorClassIdentifier: 
-  _contactName: Albert
+  _contactName: Lisa
   _contactHistory:
   - _text: What are you doing tonight?
     _isVictim: 0

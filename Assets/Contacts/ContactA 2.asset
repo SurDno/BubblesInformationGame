@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76439df87adb3544d91e05cee0c677b3, type: 3}
   m_Name: ContactA 2
   m_EditorClassIdentifier: 
-  _contactName: A2lbert
+  _contactName: Osama Bin Laden
   _contactHistory:
   - _text: What are You Doing tonight?
     _isVictim: 0

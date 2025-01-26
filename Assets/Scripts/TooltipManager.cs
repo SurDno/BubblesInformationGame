@@ -5,6 +5,7 @@ public class TooltipManager : Singleton<TooltipManager> {
     private MindMapNode selectedNode;
     [SerializeField] private RectTransform tooltipObject;
     [SerializeField] private Text tooltipText;
+    [SerializeField] private MonoBehaviour scalerObject;
 
     public void SelectNode(MindMapNode node) {
         selectedNode = node;
