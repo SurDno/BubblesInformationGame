@@ -154,8 +154,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 352.06287, y: 0.000015258789}
-  m_SizeDelta: {x: 324.1142, y: 50}
+  m_AnchoredPosition: {x: 422.52997, y: 0.000015258789}
+  m_SizeDelta: {x: 422.53, y: 50}
   m_Pivot: {x: 1, y: 1}
 --- !u!222 &3367561593044553645
 CanvasRenderer:
@@ -573,9 +573,6 @@ MonoBehaviour:
   AudioVolume: 1
   AudioClipError: {fileID: 8300000, guid: ba11869bac735c149bf32cbda8278983, type: 3}
   AudioGroupError: {fileID: 9142010892608703014, guid: c8a8e6b63a71ffe40ad05307344d65b3, type: 2}
-  _mindMapSuccess: {fileID: 0}
-  _mindMapFailure: {fileID: 0}
-  src: {fileID: 0}
 --- !u!1 &5950811154146753775
 GameObject:
   m_ObjectHideFlags: 0
@@ -790,7 +787,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3782706323231005330
 RectTransform:
   m_ObjectHideFlags: 0
