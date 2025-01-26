@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _contactName: Albert
   _contactHistory:
-  - _text: What are you Doing tonight?
+  - _text: What are you doing tonight?
     _isVictim: 0
     _textInformation: {fileID: 0}
   - _text: I'm Having Breakfast
     _isVictim: 1
-    _textInformation: {fileID: 0}
+    _textInformation: {fileID: 11400000, guid: 39fab0fdc5c72ad4080f86e79b5d4bb6, type: 2}
   - _text: Why are you having Breakfast for dinner?
     _isVictim: 0
     _textInformation: {fileID: 0}
