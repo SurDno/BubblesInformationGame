@@ -11,18 +11,26 @@ public class NodeManager : Singleton<NodeManager> {
 
 	public List<Information> DELETE_ME;
 
-	private void Awake() {
+	private void Start() {
 		AddNode(initialNode, new Vector2(500, 500));
 	}
 	
 	public MindMapNode AddNode(Information info, Vector2? position = null) {
 		if (HasNode(info)) return null;
 		var node = Instantiate(prefab, nodeParent.transform, true).GetComponent<MindMapNode>();
-		position ??= CanvasManager.Instance.GetMousePositionInRect(nodeParent.transform as RectTransform);
+		position ??= CanvasManager.GetMousePositionInRect(nodeParent.transform as RectTransform);
 		node.transform.position = (Vector2)position;
 		node.transform.localScale = Vector3.one;
 		node.Initialize(info);
 		_nodes.Add(node);
+		
+		if (_nodes.Count == 2)
+			HintManager.Instance.AfterFirstNode();
+
+		if (_nodes.All(n => n.Links.Count == 0))
+			foreach (var _ in _nodes.Where(n1 => _nodes.Any(n2 => n1.Information.GetConnectedInfo().Contains(n2.Information)))) 
+				HintManager.Instance.WhenConnectionPossible();
+		
 		return node;
 	}
 
@@ -36,6 +44,7 @@ public class NodeManager : Singleton<NodeManager> {
 	public MindMapNode GetNodeByInfo(Information info) => _nodes.FirstOrDefault(node => node.Information.Equals(info));
 
 	public void UpdateConclusions() {
+		HintManager.Instance.AfterConnection();
 		foreach (var node in _nodes) {
 			foreach (var conclusion in node.Information.GetConclusions()) {
 				if (HasNode(conclusion)) continue;

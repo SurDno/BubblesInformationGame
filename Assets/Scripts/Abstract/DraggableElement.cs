@@ -7,7 +7,7 @@ namespace Abstract {
     public abstract class DraggableElement : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler {
         [SerializeField] protected MonoBehaviour scalerObject;
         protected RectTransform _rect;
-        protected Vector2 _offset;
+        private Vector2 _offset;
         protected static bool dragging;
     
         protected virtual void Awake() {

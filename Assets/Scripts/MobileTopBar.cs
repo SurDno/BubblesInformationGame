@@ -29,7 +29,7 @@ public struct Battery
     {
         Reset(10.0f, 10.0f);
         FillColour = Color.white;
-        EmptyColour = new Color(0.2f, 0.2f, 0.2f, 1.0f);
+        EmptyColour = new Color(0.1f, 0.1f, 0.1f, 1.0f);
     }
 
     /// <summary>

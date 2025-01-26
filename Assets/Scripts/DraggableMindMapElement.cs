@@ -38,7 +38,6 @@ public abstract class DraggableMindMapElement : DraggableElement {
 		placeholderRect.SetSiblingIndex(_originalSiblingIndex);
 		transform.SetParent(CanvasManager.Instance.GetCanvasTransform());
 		base.OnBeginDrag(data);
-		SFXManager.PlaySound(AudioClip, AudioGroup, AudioVolume);
 	}
 
 	public override void OnEndDrag(PointerEventData eventData) {
@@ -50,17 +49,18 @@ public abstract class DraggableMindMapElement : DraggableElement {
 
 		if (GetInformation() == null) {
 			HintManager.Instance.ShowErrorMessage();
-			SFXManager.PlaySound(AudioClipError, AudioGroupError, AudioVolume);
+			//SFXManager.PlaySound(AudioClipError, AudioGroupError, AudioVolume);
             return;
 		}
 
 		if (NodeManager.Instance.HasNode(GetInformation())) {
 			HintManager.Instance.ShowDuplicateMessage();
-			SFXManager.PlaySound(AudioClipError, AudioGroupError, AudioVolume);
+			//SFXManager.PlaySound(AudioClipError, AudioGroupError, AudioVolume);
 			return;
 		}
 
 		NodeManager.Instance.AddNode(GetInformation());
+		SFXManager.PlaySound(AudioClip, AudioGroup, AudioVolume);
 	}
 
 	protected abstract Information GetInformation();

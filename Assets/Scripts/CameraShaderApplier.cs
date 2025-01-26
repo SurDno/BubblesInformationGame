@@ -14,7 +14,6 @@ public class FinalOverlayPostProcess : MonoBehaviour {
 
     private void Start() {
         _screenCopy = new Texture2D(Screen.width, Screen.height, TextureFormat.RGB24, false);
-        //_cam.clearFlags = CameraClearFlags.Skybox;
     }
 
     private void OnEnable() => StartCoroutine(CaptureAndBlit());

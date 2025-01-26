@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Abstract;
 using UnityEngine;
 using UnityEngine.Assertions;
@@ -15,6 +16,7 @@ public class MindMapNode : DraggableElement, IPointerEnterHandler, IPointerExitH
     [Header("References")] 
     private Image _image;   
     [SerializeField] public LineRendererUi linkPrefab;
+    [SerializeField] private Text _missingLinkNumber;
     
     public List<(LineRendererUi lr, MindMapNode mmn)> Links = new();
     private static MindMapNode linkingNode;
@@ -63,6 +65,7 @@ public class MindMapNode : DraggableElement, IPointerEnterHandler, IPointerExitH
 
         _material.SetFloat(PopupProgress, 1f);
         _animated = true;
+        _missingLinkNumber.transform.parent.gameObject.SetActive(true);
     }
     
     public void UpdateNodeState() {
@@ -72,6 +75,7 @@ public class MindMapNode : DraggableElement, IPointerEnterHandler, IPointerExitH
         if (_inversionCoroutine != null)
             StopCoroutine(_inversionCoroutine);
         _inversionCoroutine = StartCoroutine(TransitionInversionAmount(targetInversion));
+        UpdateMissingLinkNumber();
     }
     
     private IEnumerator TransitionInversionAmount(float targetValue) {
@@ -96,6 +100,7 @@ public class MindMapNode : DraggableElement, IPointerEnterHandler, IPointerExitH
         _image.sprite = Information.Sprite;
         if(information.IsConclusion)
             _material.SetFloat(ShapeMorph, 1);
+        UpdateMissingLinkNumber();
     } 
     
     protected override bool CanDrag(PointerEventData data) => true;
@@ -123,14 +128,14 @@ public class MindMapNode : DraggableElement, IPointerEnterHandler, IPointerExitH
                 foreach (var (_, mmn) in Links) {
                     if (mmn != linkingNode) continue;
                     DisableLinkingNode();
-                    SFXManager.PlaySound(AudioClipError, AudioGroupError, AudioVolume);
+                    //SFXManager.PlaySound(AudioClipError, AudioGroupError, AudioVolume);
                     return;
                 }
 
                 if (!Information.GetConnectedInfo().Contains(linkingNode.Information)) {
                     HintManager.Instance.ShowUnrelatedMessage();
                     DisableLinkingNode();
-                    SFXManager.PlaySound(AudioClipError, AudioGroupError, AudioVolume);
+                    //SFXManager.PlaySound(AudioClipError, AudioGroupError, AudioVolume);
                     return;
                 }
                 
@@ -152,6 +157,13 @@ public class MindMapNode : DraggableElement, IPointerEnterHandler, IPointerExitH
                 tempRenderer.GetComponent<Image>().raycastTarget = false;
                 break;
         }
+    }
+
+    private void UpdateMissingLinkNumber() {
+        var potentialConnections = Information.GetConnectedInfo().Count;
+        var existingConnections = Links.Count(link => Information.GetConnectedInfo().Contains(link.mmn.Information));
+        
+        _missingLinkNumber.text = (potentialConnections - existingConnections).ToString();
     }
 
     public void RemoveLink(LineRendererUi lineRendererUi) {

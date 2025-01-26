@@ -2,7 +2,7 @@ using Interfaces;
 using UnityEngine;
 
 [System.Serializable]
-public struct TextMessageObject : IInformationSource
+public struct TextMessageObject 
 {
     [SerializeField] private string _text;
     [SerializeField] private bool _isVictim;

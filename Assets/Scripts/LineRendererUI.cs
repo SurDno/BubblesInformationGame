@@ -24,7 +24,7 @@ public class LineRendererUi : MonoBehaviour, IPointerClickHandler {
             var point2 = new Vector2(node2.position.x, node2.position.y);
             UpdateLink(point1, point2);
         } else {
-            UpdateLink(point1, CanvasManager.Instance.GetMousePositionInRect(_transform));
+            UpdateLink(point1, CanvasManager.GetMousePositionInRect(_transform));
         }
     }
     

@@ -9,11 +9,20 @@ public class HintManager : Singleton<HintManager> {
 
 	private bool _userConnected, _userDisconnected;
     private void Start() {
-        hintText.text = _baseText = "Find useful clues on the victim's phone and drag them onto your mindmap.";
+        hintText.text = _baseText = "Find useful clues on the victim's phone and drag them onto your mind map.";
     }
 
-    public void SetUserConnected() => _userConnected = true;
-    public void SetUserDisconnected() => _userDisconnected = true;
+    public void AfterFirstNode() {
+	    hintText.text = _baseText = "Keep getting more facts from the phone to paint the whole picture.";
+    }
+
+    public void WhenConnectionPossible() {
+	    hintText.text = _baseText = "Connect related facts to draw conclusions: right-click one, left-click another.";
+    }
+    
+    public void AfterConnection() {
+	    hintText.text = _baseText = "Check number near each node - if it is not 0, you miss a connection.";
+    }
 
     public void ShowErrorMessage() {
 	    StopAllCoroutines();

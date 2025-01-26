@@ -7,13 +7,8 @@ using UnityEngine;
 
         public float GetScalingFactor() => _canvasScaler.referenceResolution.y / Screen.height;
         
-        public Vector2 GetMousePositionInRect(RectTransform obj) {
-            RectTransformUtility.ScreenPointToWorldPointInRectangle(
-                obj, 
-                Input.mousePosition,
-                null, // No camera needed for Overlay
-                out var mousePos
-            );
+        public static Vector2 GetMousePositionInRect(RectTransform obj) {
+            RectTransformUtility.ScreenPointToWorldPointInRectangle(obj, Input.mousePosition, null, out var mousePos);
             return mousePos;
         }
 
