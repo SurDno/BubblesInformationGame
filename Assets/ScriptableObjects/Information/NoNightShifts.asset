@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bee643dee328a1c41a8abccbb6fed464, type: 3}
+  m_Name: NoNightShifts
+  m_EditorClassIdentifier: 
+  text: The victim tried to avoid jobs with night shifts.
+  sprite: {fileID: 21300000, guid: 03954da1ad5499b4781a68601297d003, type: 3}
+  isTrue: 1
+  isConclusion: 0
+  connectedInfo:
+  - {fileID: 11400000, guid: 436661b6f95462a41a84224e51889045, type: 2}
+  - {fileID: 11400000, guid: d1484eed66287bb45850dcdfb4178be5, type: 2}
+  - {fileID: 11400000, guid: 766a0099f61954d4990eb85a356d83a7, type: 2}
+  conclusions:
+  - {fileID: 11400000, guid: 4b457e6093d0a6f4c9c35a4e14ed2ac1, type: 2}
+  prereqs: []

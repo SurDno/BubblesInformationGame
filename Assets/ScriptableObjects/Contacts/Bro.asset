@@ -20,7 +20,7 @@ MonoBehaviour:
   - _text: ye got smth coming up, ill be home by 11 tho
     _isVictim: 1
     _textInformation: {fileID: 11400000, guid: 39fab0fdc5c72ad4080f86e79b5d4bb6, type: 2}
-  - _text: kk!
+  - _text: kk
     _isVictim: 0
     _textInformation: {fileID: 0}
   - _text: I'm sorry, I won't be coming home, something came up. I will hopefully

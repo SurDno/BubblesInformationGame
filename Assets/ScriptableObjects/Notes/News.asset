@@ -10,23 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b22c237b8172277408b11f590c22ad75, type: 3}
-  m_Name: Notes
+  m_Name: News
   m_EditorClassIdentifier: 
   noteObjects:
-  - _title: Happy Days
-    _content: "Grandma Promised To Give me \xA31000 Today, Better drop by her house!"
+  - _title: Rare Bird Species Spotted in City Park
+    _content: 'Local birdwatchers report first sighting of Blue-throated Warbler
+      in 50 years. '
     _information: {fileID: 0}
   - _title: Happy Days
     _content: "Grandma Promised To Give me \xA31000 Today, Better drop by her house!"
     _information: {fileID: 0}
-  - _title: Happy Days
-    _content: "Grandma Promised To Give me \xA31000 Today, Better drop by her house!"
+  - _title: New Coffee Shop Opens Downtown
+    _content: Local roasters expand with third location on Main Street.
     _information: {fileID: 0}
-  - _title: Happy Days
-    _content: "Grandma Promised To Give me \xA31000 Today, Better drop by her house!"
+  - _title: City Marathon Registration Opens
+    _content: Annual spring race expects record participation this year.
     _information: {fileID: 0}
-  - _title: Happy Days
-    _content: "Grandma Promised To Give me \xA31000 Today, Better drop by her house!"
+  - _title: Local Restaurant Wins National Award
+    _content: Family-owned pizzeria recognized for traditional Neapolitan recipe.
     _information: {fileID: 0}
   - _title: Happy Days
     _content: "Grandma Promised To Give me \xA31000 Today, Better drop by her house!"

@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bee643dee328a1c41a8abccbb6fed464, type: 3}
+  m_Name: RepeatPrescriptions
+  m_EditorClassIdentifier: 
+  text: The victim has been ordering repeat prescriptions for many years.
+  sprite: {fileID: 21300000, guid: 2f665d2257b32f642bb048344185693c, type: 3}
+  isTrue: 1
+  isConclusion: 0
+  connectedInfo:
+  - {fileID: 11400000, guid: 788fa6f084315b94db6c0389af705aed, type: 2}
+  conclusions:
+  - {fileID: 11400000, guid: 766a0099f61954d4990eb85a356d83a7, type: 2}
+  prereqs: []

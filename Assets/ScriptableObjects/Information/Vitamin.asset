@@ -10,14 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bee643dee328a1c41a8abccbb6fed464, type: 3}
-  m_Name: Information 1
+  m_Name: Vitamin
   m_EditorClassIdentifier: 
-  text: The victim searched foods that are high in vitamin K, however, it's unclear
-    whether he wanted to eat or avoid them.
+  text: The victim searched foods that are high in vitamin K.
   sprite: {fileID: 21300000, guid: 9e2af3dcd916f204692d4385a1185732, type: 3}
-  isTrue: 0
+  isTrue: 1
   isConclusion: 0
   connectedInfo:
-  - {fileID: 0}
-  conclusions: []
+  - {fileID: 11400000, guid: 436661b6f95462a41a84224e51889045, type: 2}
+  - {fileID: 11400000, guid: 766a0099f61954d4990eb85a356d83a7, type: 2}
+  - {fileID: 11400000, guid: 11e5eac538bbda54a9ac639ac8cdaf41, type: 2}
+  conclusions:
+  - {fileID: 11400000, guid: 4b457e6093d0a6f4c9c35a4e14ed2ac1, type: 2}
   prereqs: []

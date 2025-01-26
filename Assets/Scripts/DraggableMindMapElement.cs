@@ -10,7 +10,11 @@ public abstract class DraggableMindMapElement : DraggableElement {
 	private int _originalSiblingIndex;
 	private GameObject _placeholder;
 
+	[SerializeField] private AudioClip _mindMapSuccess, _mindMapFailure;
+	[SerializeField] private AudioSource src;
+
 	protected override void Awake() {
+		src = FindObjectOfType<AudioSource>();
 		base.Awake();
 		_originalParent = transform.parent;
 		_originalPosition = _rect.anchoredPosition;
@@ -41,16 +45,19 @@ public abstract class DraggableMindMapElement : DraggableElement {
 		Destroy(_placeholder);
 
 		if (GetInformation() == null) {
+			src.PlayOneShot(_mindMapFailure);
 			HintManager.Instance.ShowErrorMessage();
 			return;
 		}
 
 		if (NodeManager.Instance.HasNode(GetInformation())) {
 			HintManager.Instance.ShowDuplicateMessage();
+			src.PlayOneShot(_mindMapFailure);
 			return;
 		}
 
 		NodeManager.Instance.AddNode(GetInformation());
+		src.PlayOneShot(_mindMapSuccess);
 	}
 
 	protected abstract Information GetInformation();

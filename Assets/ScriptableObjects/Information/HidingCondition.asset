@@ -10,14 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bee643dee328a1c41a8abccbb6fed464, type: 3}
-  m_Name: GoogleIdentity
+  m_Name: HidingCondition
   m_EditorClassIdentifier: 
-  text: Victim searched in the browser how one would recognize a fake ID.
-  sprite: {fileID: 21300000, guid: 8223adc997725b5468ed9d3e4685a0d3, type: 3}
-  isTrue: 0
-  isConclusion: 0
+  text: The victim has been using fake ID to hide the condition from the employers.
+  sprite: {fileID: 0}
+  isTrue: 1
+  isConclusion: 1
   connectedInfo:
-  - {fileID: 11400000, guid: c4c0b7182c2b9c74ea015c5dfde43d6d, type: 2}
+  - {fileID: 11400000, guid: 63ddf2b178cc0dd4aa30a9323959826d, type: 2}
+  - {fileID: 11400000, guid: bcc8ec04ef09aa045b54c8b349568d58, type: 2}
   conclusions:
+  - {fileID: 11400000, guid: f7104a5f1ecf9c343ba03b01a9913771, type: 2}
+  prereqs:
+  - {fileID: 11400000, guid: 4b457e6093d0a6f4c9c35a4e14ed2ac1, type: 2}
   - {fileID: 11400000, guid: 8c13a5e6a6808b74e8a03ddd7a0287ac, type: 2}
-  prereqs: []

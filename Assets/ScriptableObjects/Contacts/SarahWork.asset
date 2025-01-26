@@ -14,16 +14,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _contactName: Sarah Work
   _contactHistory:
-  - _text: Hello Cornelius, just wanted to thank you for everything you'de done for
-      the project! It could not have succeeded without you.
+  - _text: Hello Cornelius, just wanted to congratulate you on the raise! I always
+      knew you had it in you!
     _isVictim: 0
     _textInformation: {fileID: 11400000, guid: e951dad66ab32214fb7563b46dbc6960, type: 2}
-  - _text: ofc my pleasure!
+  - _text: tysm! <3
     _isVictim: 1
     _textInformation: {fileID: 11400000, guid: 5a231c813d73e0142b4b644dbc7b3858, type: 2}
-  - _text: See you soon!
+  - _text: By the way, would you be able to pick me up Sunday? My car broke down.
+    _isVictim: 1
+    _textInformation: {fileID: 0}
+  - _text: sry i cant rly drive
+    _isVictim: 1
+    _textInformation: {fileID: 11400000, guid: 5a231c813d73e0142b4b644dbc7b3858, type: 2}
+  - _text: Like that day in particular or..?
     _isVictim: 0
     _textInformation: {fileID: 0}
-  - _text: see ya!!
+  - _text: no. ever.
     _isVictim: 1
-    _textInformation: {fileID: 11400000, guid: 5a231c813d73e0142b4b644dbc7b3858, type: 2}
+    _textInformation: {fileID: 11400000, guid: 436661b6f95462a41a84224e51889045, type: 2}
+  - _text: Oh. Okay.
+    _isVictim: 0
+    _textInformation: {fileID: 0}
