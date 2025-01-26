@@ -78,7 +78,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Some Text Some Text Some Text Some Text Some Text
+  m_Text: SOme Test
 --- !u!1 &1358822786017535830
 GameObject:
   m_ObjectHideFlags: 0
@@ -165,8 +165,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -145.8919, y: -85.79712}
-  m_SizeDelta: {x: 291.7838, y: 171.5943}
+  m_AnchoredPosition: {x: -90.632996, y: -28.643612}
+  m_SizeDelta: {x: 181.266, y: 57.2873}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5447563042591268825
 CanvasRenderer:
@@ -219,7 +219,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mMaxWidth: 200
-  mText: {fileID: 0}
+  mText: {fileID: 794922796597480404}
   bDebugging: 0
   mPerferredWidth: 0
   mPerferredHeight: 0

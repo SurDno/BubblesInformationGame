@@ -37,8 +37,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -83.59686, y: 318.1657}
-  m_SizeDelta: {x: 296.3264, y: 171.5943}
+  m_AnchoredPosition: {x: -144.28766, y: 370.87085}
+  m_SizeDelta: {x: 174.9449, y: 66.1841}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7239812831542079433
 CanvasRenderer:
@@ -104,7 +104,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mMaxWidth: 200
-  mText: {fileID: 0}
+  mText: {fileID: 5324311560489460046}
   bDebugging: 0
   mPerferredWidth: 0
   mPerferredHeight: 0
@@ -146,7 +146,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -2.0740356, y: -1.3824997}
+  m_AnchoredPosition: {x: -2.0740356, y: -1.3824959}
   m_SizeDelta: {x: -26.2681, y: -22.1204}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8715487157027235325
@@ -190,4 +190,4 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Some Text Some Text Some Text Some Text Some Text
+  m_Text: Some Text

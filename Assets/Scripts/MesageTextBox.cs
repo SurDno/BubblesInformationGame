@@ -41,7 +41,9 @@ public class MesageTextBox : MonoBehaviour
 
     public void Init()
     {
-        if(!mText) GetComponentInChildren<Text>();
+        if(!mText) 
+            GetComponentInChildren<Text>();
+
         mPerferredWidth = mText.preferredWidth;
         mPerferredHeight = mText.preferredHeight;
 
@@ -59,11 +61,18 @@ public class MesageTextBox : MonoBehaviour
                 mPos = rect_trans.offsetMin;
 
             }  //adjust height
-            else if (rect_trans.rect.height < mPerferredHeight)
+            if (mPerferredWidth > mMaxWidth && rect_trans.rect.height < mPerferredHeight)
             {
+                Debug.Log($"Adjusting Height {gameObject}");
                 //rect_trans
                 mDebugHeight = rect_trans.offsetMin.y;
+                //int dir = ((int)rect_trans.anchorMax.x == 1) ? -1 : 1;  
                 rect_trans.offsetMin = new Vector2(rect_trans.offsetMin.x, -mPerferredHeight);
+                //rect_trans.offsetMax = new Vector2(rect_trans.offsetMax.x, mPerferredHeight);
+
+                int invert_anchor = ((int)rect_trans.anchorMax.x - 1) * -1;  //[0 >> 1] [1 >> 0] >> Determine anchor side Helper 
+                //rect_trans.offsetMax = new Vector2(rect_trans.offsetMax.y, invert_anchor * -mPerferredHeight);
+                //rect_trans.offsetMin = new Vector2(rect_trans.offsetMin.y, (int)rect_trans.anchorMax.y * mPerferredHeight);
             }
         }
     }

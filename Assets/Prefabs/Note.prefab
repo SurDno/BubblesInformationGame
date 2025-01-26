@@ -290,7 +290,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mMaxWidth: 200
-  mText: {fileID: 0}
+  mText: {fileID: 3705272128694935721}
   bDebugging: 0
   mPerferredWidth: 0
   mPerferredHeight: 0
@@ -389,7 +389,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mMaxWidth: 200
-  mText: {fileID: 0}
+  mText: {fileID: 6192310317037037277}
   bDebugging: 0
   mPerferredWidth: 0
   mPerferredHeight: 0
