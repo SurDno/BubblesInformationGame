@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _contactName: Jake
   _contactHistory:
-  - _text: What are you Doing Tonight?
+  - _text: Hello Cornelius, just wanted to thank
     _isVictim: 0
-    _textInformation: {fileID: 0}
+    _textInformation: {fileID: 11400000, guid: e951dad66ab32214fb7563b46dbc6960, type: 2}
   - _text: I'm Having Breakfast
     _isVictim: 1
     _textInformation: {fileID: 0}

@@ -25,6 +25,11 @@ public class HintManager : Singleton<HintManager> {
 	    StartCoroutine(ErrorMessage("I am already aware of that."));
     }
 
+    public void ShowUnrelatedMessage() {
+	    StopAllCoroutines();
+	    StartCoroutine(ErrorMessage("I don't think this is related."));
+    }
+
     private IEnumerator ErrorMessage(string msg) {
 	    hintText.text = msg;
 	    yield return new WaitForSecondsRealtime(2f);
