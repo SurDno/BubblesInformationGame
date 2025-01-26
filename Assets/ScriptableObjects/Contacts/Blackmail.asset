@@ -17,7 +17,7 @@ MonoBehaviour:
   - _text: I know what you are doing. If you don't want to lose your job, meet me
       at 9 near the cabin. Bring cash.
     _isVictim: 0
-    _textInformation: {fileID: 0}
+    _textInformation: {fileID: 11400000, guid: 63ddf2b178cc0dd4aa30a9323959826d, type: 2}
   - _text: ill be there
     _isVictim: 1
     _textInformation: {fileID: 0}

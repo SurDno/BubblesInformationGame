@@ -25,3 +25,5 @@ MonoBehaviour:
     _historyInfo: {fileID: 11400000, guid: 11e5eac538bbda54a9ac639ac8cdaf41, type: 2}
   - _searchHistory: Prop money amazon
     _historyInfo: {fileID: 11400000, guid: bcc8ec04ef09aa045b54c8b349568d58, type: 2}
+  - _searchHistory: Vitamin K rich foods
+    _historyInfo: {fileID: 11400000, guid: d1484eed66287bb45850dcdfb4178be5, type: 2}
