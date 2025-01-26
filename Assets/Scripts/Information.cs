@@ -7,8 +7,7 @@ public class Information : ScriptableObject {
 	[SerializeField] private Sprite sprite;
 	[SerializeField] private bool isTrue;
 	[SerializeField] private bool isConclusion;
-	[SerializeField] private List<Information> connectedInfo;
-	[SerializeField] private List<Information> conclusions;
+	[SerializeField] private List<Information> connectedInfo, conclusions, prereqs;
 	
 	public string Text => text;
 	public Sprite Sprite => sprite;
@@ -16,4 +15,5 @@ public class Information : ScriptableObject {
 	public bool IsConclusion => isConclusion;
 	public List<Information> GetConnectedInfo() => connectedInfo;
 	public List<Information> GetConclusions() => conclusions;
+	public List<Information> GetPrereqs() => prereqs;
 }

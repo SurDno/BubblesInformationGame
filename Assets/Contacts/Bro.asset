@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 76439df87adb3544d91e05cee0c677b3, type: 3}
-  m_Name: ContactA
+  m_Name: Bro
   m_EditorClassIdentifier: 
   _contactName: Bro
   _contactHistory:
-  - _text: hera rupert, any plans for tonight?
+  - _text: heya rupert, any plans for tonight?
     _isVictim: 0
     _textInformation: {fileID: 11400000, guid: 86f096479f1a6774a9fc9f1c5c77b1ec, type: 2}
   - _text: ye got smth coming up, ill be home by 11 tho

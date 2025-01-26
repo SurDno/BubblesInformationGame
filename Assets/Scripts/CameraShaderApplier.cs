@@ -18,6 +18,7 @@ public class FinalOverlayPostProcess : MonoBehaviour {
     }
 
     private void OnEnable() => StartCoroutine(CaptureAndBlit());
+    
     private IEnumerator CaptureAndBlit() {
         while (true) {
             yield return new WaitForEndOfFrame();
