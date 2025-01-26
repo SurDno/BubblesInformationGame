@@ -12,7 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bee643dee328a1c41a8abccbb6fed464, type: 3}
   m_Name: InitialInfo
   m_EditorClassIdentifier: 
-  text: Victim found dead in studio at 6PM. Nothing but a phone in pockets.
-  sprite: {fileID: 21300000, guid: 5acf08dc3df2d674dbab0f69eb80e92a, type: 3}
+  text: Body found in a forest, formal attire. Records show nothing. Nothing but
+    a phone in pockets.
+  sprite: {fileID: 21300000, guid: 7abfa5f5e5b843840abcb02ac188635c, type: 3}
   isTrue: 1
+  isConclusion: 0
   connectedInfo: []
+  conclusions: []

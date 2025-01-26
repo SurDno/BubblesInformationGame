@@ -15,4 +15,6 @@ MonoBehaviour:
   text: Victim mentions plans in the evening but expects them to be over by 11PM.
   sprite: {fileID: 21300000, guid: bf0627026ec2f2e44b811d0725df76ff, type: 3}
   isTrue: 1
+  isConclusion: 0
   connectedInfo: []
+  conclusions: []

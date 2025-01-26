@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76439df87adb3544d91e05cee0c677b3, type: 3}
+  m_Name: SarahWork
+  m_EditorClassIdentifier: 
+  _contactName: Sarah Work
+  _contactHistory:
+  - _text: Hello Cornelius, just wanted to thank you for everything you'de done for
+      the project! It could not have succeeded without you.
+    _isVictim: 0
+    _textInformation: {fileID: 11400000, guid: e951dad66ab32214fb7563b46dbc6960, type: 2}
+  - _text: ofc my pleasure!
+    _isVictim: 1
+    _textInformation: {fileID: 11400000, guid: 5a231c813d73e0142b4b644dbc7b3858, type: 2}
+  - _text: See you soon!
+    _isVictim: 0
+    _textInformation: {fileID: 0}
+  - _text: see ya!!
+    _isVictim: 1
+    _textInformation: {fileID: 11400000, guid: 5a231c813d73e0142b4b644dbc7b3858, type: 2}

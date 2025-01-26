@@ -13,7 +13,7 @@ public class MindMapNode : DraggableElement, IPointerEnterHandler, IPointerExitH
 
     [Header("References")] 
     private Image _image;   
-    [SerializeField] private LineRendererUi linkPrefab;
+    [SerializeField] public LineRendererUi linkPrefab;
     
     public List<(LineRendererUi lr, MindMapNode mmn)> Links = new();
     private static MindMapNode linkingNode;
@@ -22,6 +22,7 @@ public class MindMapNode : DraggableElement, IPointerEnterHandler, IPointerExitH
 
     private static readonly int InversionAmount = Shader.PropertyToID("_InversionAmount");
     private static readonly int PopupProgress = Shader.PropertyToID("_PopupProgress");
+    private static readonly int ShapeMorph = Shader.PropertyToID("_ShapeMorph");
     private Material _material;
     private Coroutine _inversionCoroutine;
     [SerializeField] private float transitionDuration = 0.3f;
@@ -35,7 +36,8 @@ public class MindMapNode : DraggableElement, IPointerEnterHandler, IPointerExitH
         RectTransform = GetComponent<RectTransform>();
         _material = new Material(_image.material);
         _image.material = _material;
-        _material.SetFloat("_PopupProgress", 0f);
+        _material.SetFloat(PopupProgress, 0f);
+        scalerObject = transform.parent.GetComponent<MindMapContents>();
     }
 
     private void OnEnable() {
@@ -86,6 +88,8 @@ public class MindMapNode : DraggableElement, IPointerEnterHandler, IPointerExitH
         if(_initialized) throw new Exception("MindMapNode already initialized");
         Information = information;
         _image.sprite = Information.Sprite;
+        if(information.IsConclusion)
+            _material.SetFloat(ShapeMorph, 1);
     } 
     
     protected override bool CanDrag(PointerEventData data) => true;
@@ -115,6 +119,13 @@ public class MindMapNode : DraggableElement, IPointerEnterHandler, IPointerExitH
                     DisableLinkingNode();
                     return;
                 }
+
+                if (!Information.GetConnectedInfo().Contains(linkingNode.Information)) {
+                    HintManager.Instance.ShowUnrelatedMessage();
+                    DisableLinkingNode();
+                    return;
+                }
+                
                 var lineRendererUi = Instantiate(linkPrefab, transform.parent)
                     .Initialize(linkingNode.RectTransform, RectTransform);
                 lineRendererUi.transform.SetAsFirstSibling();
@@ -123,6 +134,7 @@ public class MindMapNode : DraggableElement, IPointerEnterHandler, IPointerExitH
                 UpdateNodeState();
                 linkingNode.UpdateNodeState();
                 DisableLinkingNode();
+                NodeManager.Instance.UpdateConclusions();
                 break;
             case PointerEventData.InputButton.Right:
                 DisableLinkingNode();

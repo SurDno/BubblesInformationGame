@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7239812831542079433}
   - component: {fileID: 834736101649566994}
   - component: {fileID: 5609751000056667083}
+  - component: {fileID: 6264859033307960720}
   m_Layer: 5
   m_Name: Other Person Text Message
   m_TagString: Untagged
@@ -90,6 +91,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scalerObject: {fileID: 0}
+--- !u!114 &6264859033307960720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1164241530820699610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b9e5cd6664016549b4f2ae421273703, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mMaxWidth: 200
+  mText: {fileID: 0}
+  bDebugging: 0
+  mPerferredWidth: 0
+  mPerferredHeight: 0
+  mDebugWidth: 0
+  mDebugHeight: 0
+  mDebugAnchorPos: {x: 0, y: 0}
+  mPos: {x: 0, y: 0}
 --- !u!1 &8612086764083896662
 GameObject:
   m_ObjectHideFlags: 0

@@ -16,7 +16,7 @@ MonoBehaviour:
   _contactHistory:
   - _text: What Are you Doing tonight?
     _isVictim: 0
-    _textInformation: {fileID: 0}
+    _textInformation: {fileID: 11400000, guid: 223bd3c5c7d0f9047a7d46a5cf97a9c6, type: 2}
   - _text: I'm Having Breakfast
     _isVictim: 1
     _textInformation: {fileID: 0}

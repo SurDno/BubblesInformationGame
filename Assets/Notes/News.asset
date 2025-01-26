@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b22c237b8172277408b11f590c22ad75, type: 3}
+  m_Name: News
+  m_EditorClassIdentifier: 
+  noteObjects:
+  - _title: Happy Days
+    _content: "Grandma Promised To Give me \xA31000 Today, Better drop by her house!"
+    _information: {fileID: 0}
+  - _title: Happy Days
+    _content: "Grandma Promised To Give me \xA31000 Today, Better drop by her house!"
+    _information: {fileID: 0}
+  - _title: Happy Days
+    _content: "Grandma Promised To Give me \xA31000 Today, Better drop by her house!"
+    _information: {fileID: 0}
+  - _title: Happy Days
+    _content: "Grandma Promised To Give me \xA31000 Today, Better drop by her house!"
+    _information: {fileID: 0}
+  - _title: Happy Days
+    _content: "Grandma Promised To Give me \xA31000 Today, Better drop by her house!"
+    _information: {fileID: 0}
+  - _title: Happy Days
+    _content: "Grandma Promised To Give me \xA31000 Today, Better drop by her house!"
+    _information: {fileID: 0}
+  - _title: Happy Days
+    _content: "Grandma Promised To Give me \xA31000 Today, Better drop by her house!"
+    _information: {fileID: 0}
+  - _title: Happy Days
+    _content: "Grandma Promised To Give me \xA31000 Today, Better drop by her house!"
+    _information: {fileID: 0}
+  - _title: Happy Days
+    _content: "Grandma Promised To Give me \xA31000 Today, Better drop by her house!"
+    _information: {fileID: 0}
+  - _title: Happy Days
+    _content: "Grandma Promised To Give me \xA31000 Today, Better drop by her house!"
+    _information: {fileID: 0}
+  - _title: Happy Days
+    _content: "Grandma Promised To Give me \xA31000 Today, Better drop by her house!"
+    _information: {fileID: 0}
+  - _title: Happy Days
+    _content: "Grandma Promised To Give me \xA31000 Today, Better drop by her house!"
+    _information: {fileID: 0}
+  - _title: Happy Days
+    _content: "Grandma Promised To Give me \xA31000 Today, Better drop by her house!"
+    _information: {fileID: 0}
+  - _title: Happy Days
+    _content: "Grandma Promised To Give me \xA31000 Today, Better drop by her house!"
+    _information: {fileID: 0}
+  - _title: Happy Days
+    _content: "Grandma Promised To Give me \xA31000 Today, Better drop by her house!"
+    _information: {fileID: 0}

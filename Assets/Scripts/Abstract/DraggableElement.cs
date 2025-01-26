@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 
 namespace Abstract {
     public abstract class DraggableElement : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler {
-        [SerializeField] private MonoBehaviour scalerObject;
+        [SerializeField] protected MonoBehaviour scalerObject;
         protected RectTransform _rect;
         protected Vector2 _offset;
         protected static bool dragging;

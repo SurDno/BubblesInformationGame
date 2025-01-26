@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text: Victim is being referred to as Rupert by a friend.
   sprite: {fileID: 21300000, guid: 31a469bac2eadcd4ea9e0253b1db43ac, type: 3}
-  isTrue: 0
+  isTrue: 1
   isConclusion: 0
-  connectedInfo: []
-  conclusions: []
+  connectedInfo:
+  - {fileID: 11400000, guid: e951dad66ab32214fb7563b46dbc6960, type: 2}
+  conclusions:
+  - {fileID: 11400000, guid: c4c0b7182c2b9c74ea015c5dfde43d6d, type: 2}
