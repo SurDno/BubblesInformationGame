@@ -20,7 +20,7 @@ public class UI_Manager : MonoBehaviour
 
     public void GoBack() { 
         currentMenu.SetActive(false);
-        GameObject newPreviousMenu = currentMenu;
+        var newPreviousMenu = currentMenu;
         currentMenu = previousMenu;
         currentMenu.SetActive(true);
         previousMenu = newPreviousMenu;

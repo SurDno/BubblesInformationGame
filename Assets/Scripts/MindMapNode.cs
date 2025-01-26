@@ -22,9 +22,12 @@ public class MindMapNode : DraggableElement, IPointerEnterHandler, IPointerExitH
     public RectTransform RectTransform { get; private set; }
 
     private static readonly int InversionAmount = Shader.PropertyToID("_InversionAmount");
+    private static readonly int PopupProgress = Shader.PropertyToID("_PopupProgress");
     private Material _material;
     private Coroutine _inversionCoroutine;
     [SerializeField] private float transitionDuration = 0.3f;
+
+    private bool _animated;
     
     protected override void Awake() {
         base.Awake();
@@ -34,11 +37,31 @@ public class MindMapNode : DraggableElement, IPointerEnterHandler, IPointerExitH
         Initialize(DELETEME);
         _material = new Material(_image.material);
         _image.material = _material;
+        _material.SetFloat("_PopupProgress", 0f);
+    }
+
+    private void OnEnable() {
+        StartCoroutine(AnimatePopup());
+    }
+
+    private IEnumerator AnimatePopup() {
+        float elapsedTime = 0f;
+        float duration = 0.5f;
+
+        while (elapsedTime < duration) {
+            elapsedTime += Time.deltaTime;
+            float progress = elapsedTime / duration;
+            _material.SetFloat(PopupProgress, progress);
+            yield return null;
+        }
+
+        _material.SetFloat(PopupProgress, 1f);
+        _animated = true;
     }
     
     public void UpdateNodeState() {
-        bool isLinked = Links.Count > 0;
-        float targetInversion = isLinked ? 0f : 1f;
+        var isLinked = Links.Count > 0;
+        var targetInversion = isLinked ? 0f : 1f;
 
         if (_inversionCoroutine != null)
             StopCoroutine(_inversionCoroutine);
@@ -46,13 +69,13 @@ public class MindMapNode : DraggableElement, IPointerEnterHandler, IPointerExitH
     }
     
     private IEnumerator TransitionInversionAmount(float targetValue) {
-        float startValue = _material.GetFloat(InversionAmount);
-        float elapsedTime = 0f;
+        var startValue = _material.GetFloat(InversionAmount);
+        var elapsedTime = 0f;
 
         while (elapsedTime < transitionDuration) {
             elapsedTime += Time.deltaTime;
-            float t = elapsedTime / transitionDuration;
-            float currentValue = Mathf.Lerp(startValue, targetValue, t);
+            var t = elapsedTime / transitionDuration;
+            var currentValue = Mathf.Lerp(startValue, targetValue, t);
             _material.SetFloat(InversionAmount, currentValue);
             yield return null;
         }
@@ -61,17 +84,16 @@ public class MindMapNode : DraggableElement, IPointerEnterHandler, IPointerExitH
         _inversionCoroutine = null;
     }
 
-    
     public void Initialize(Information information) {
         if(_initialized) throw new Exception("MindMapNode already initialized");
         Information = information;
-        //_image.sprite = Information.Sprite;
+        _image.sprite = Information.Sprite;
     } 
     
     protected override bool CanDrag(PointerEventData data) => true;
     
     public void OnPointerEnter(PointerEventData eventData) {
-        if (dragging || linkingNode != null) return;
+        if (dragging || linkingNode != null || !_animated) return;
         TooltipManager.Instance.SelectNode(this);
     }
 
@@ -108,6 +130,7 @@ public class MindMapNode : DraggableElement, IPointerEnterHandler, IPointerExitH
                 DisableLinkingNode();
                 linkingNode = this;
                 tempRenderer = Instantiate(linkPrefab, transform.parent).Initialize(RectTransform, null);
+                tempRenderer.transform.SetAsFirstSibling();
                 tempRenderer.GetComponent<Image>().raycastTarget = false;
                 break;
         }

@@ -16,4 +16,6 @@ using UnityEngine;
             );
             return mousePos;
         }
+
+        public RectTransform GetCanvasTransform() => _canvas.transform as RectTransform;
     }

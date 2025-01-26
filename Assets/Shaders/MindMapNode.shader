@@ -8,6 +8,10 @@ Shader "UI/CircleBackground"
         _WaveSpeed ("Wave Speed", Range(0, 5)) = 1
         _WaveAmount ("Wave Amount", Range(0, 0.1)) = 0.02
         _WaveFrequency("Wave Frequency", Range(1, 12)) = 6
+        _IconSharpness ("Icon Sharpness", Range(0.001, 0.1)) = 0.01
+        _PopupProgress ("Popup Progress", Range(0,1)) = 0
+        _PopupBounciness ("Popup Bounciness", Range(0, 1)) = 0.2
+        _ShapeMorph ("Shape Morph", Range(0, 1)) = 0
         
         [HideInInspector] _StencilComp ("Stencil Comparison", Float) = 8
         [HideInInspector] _Stencil ("Stencil ID", Float) = 0
@@ -19,14 +23,7 @@ Shader "UI/CircleBackground"
 
     SubShader
     {
-        Tags
-        {
-            "Queue"="Transparent"
-            "IgnoreProjector"="True"
-            "RenderType"="Transparent"
-            "PreviewType"="Plane"
-            "CanUseSpriteAtlas"="True"
-        }
+        Tags { "Queue"="Transparent" "IgnoreProjector"="True" "RenderType"="Transparent" "PreviewType"="Plane" "CanUseSpriteAtlas"="True" }
 
         Stencil
         {
@@ -70,19 +67,36 @@ Shader "UI/CircleBackground"
             float _WaveSpeed;
             float _WaveAmount;
             float _WaveFrequency;
+            float _IconSharpness;
+            float _PopupProgress;
+            float _PopupBounciness;
+            float _ShapeMorph;
             sampler2D _MainTex;
             float4 _MainTex_ST;
             float4 _ClipRect;
+
+            float elasticOut(float x) {
+                return sin(-13.0 * (x + 1.0) * UNITY_PI/2) * pow(2.0, -10.0 * x) + 1.0;
+            }
 
             v2f vert(appdata_t v)
             {
                 v2f OUT;
                 OUT.worldPosition = v.vertex;
-                OUT.vertex = UnityObjectToClipPos(OUT.worldPosition);
                 
                 float2 centeredUV = v.texcoord - 0.5;
-                centeredUV *= 0.85;
+                float scale = lerp(0.2, 1.0, elasticOut(_PopupProgress));
+                centeredUV *= 0.85 * scale;
+                
+                float rotation = (1.0 - _PopupProgress) * UNITY_PI;
+                float2x2 rotMatrix = float2x2(cos(rotation), -sin(rotation), sin(rotation), cos(rotation));
+                centeredUV = mul(rotMatrix, centeredUV);
+                
                 OUT.texcoord = centeredUV + 0.5;
+                
+                float4 popupPos = OUT.worldPosition;
+                popupPos.xy = (popupPos.xy - float2(0.5, 0.5)) * scale + float2(0.5, 0.5);
+                OUT.vertex = UnityObjectToClipPos(popupPos);
                 
                 return OUT;
             }
@@ -92,35 +106,41 @@ Shader "UI/CircleBackground"
                 float2 center = float2(0.5, 0.5);
                 float time = _Time.y * _WaveSpeed;
                 float angle = atan2(IN.texcoord.y - center.y, IN.texcoord.x - center.x);
-                // Normalize angle to [0, 2π] range
                 if (angle < 0) angle += 2 * UNITY_PI;
-                float wave = sin(angle * _WaveFrequency + time) * _WaveAmount;
-                
-                float dist = distance(IN.texcoord, center) + wave;
+                float wave = sin(angle * _WaveFrequency + time) * _WaveAmount * _PopupProgress;
                 
                 float2 centeredUV = IN.texcoord - 0.5;
-                centeredUV *= 1.85; 
+                centeredUV *= 1.85;
                 float2 scaledUV = centeredUV + 0.5;
                 
                 fixed4 texColor = tex2D(_MainTex, scaledUV);
-                texColor = fixed4(1, 1, 1, texColor.a);
+                float iconAlpha = smoothstep(0.5 - _IconSharpness, 0.5 + _IconSharpness, texColor.a);
+                texColor = fixed4(1, 1, 1, iconAlpha);
                 
                 if (scaledUV.x < 0 || scaledUV.x > 1 || scaledUV.y < 0 || scaledUV.y > 1) {
                     texColor = fixed4(0, 0, 0, 1);
                 }
-                fixed4 color;
-                
-                float radius = 0.38;
+
+                float baseRadius = 0.38;
+                float rhomboidFactor = abs(cos(4 * angle)) * 0.08;
+                float morphedRadius = lerp(baseRadius, baseRadius - rhomboidFactor, _ShapeMorph);
+                float dist = distance(IN.texcoord, center) + wave;
+                float radius = morphedRadius;
                 float outlineWidth = 0.02;
+                
+                float outlineVisibility = smoothstep(0.07, 0.15, _PopupProgress);
+                outlineWidth *= outlineVisibility;
+                
                 float outlineAlpha = smoothstep(radius + outlineWidth + _EdgeSmoothness, radius + outlineWidth - _EdgeSmoothness, dist) - 
-                                     smoothstep(radius + _EdgeSmoothness, radius - _EdgeSmoothness, dist);
+                                   smoothstep(radius + _EdgeSmoothness, radius - _EdgeSmoothness, dist);
                 float circleAlpha = smoothstep(radius + _EdgeSmoothness, radius - _EdgeSmoothness, dist);
 
-                color = fixed4(0, 0, 0, circleAlpha);
+                fixed4 color = fixed4(0, 0, 0, circleAlpha * _PopupProgress);
                 color.rgb = lerp(color.rgb, texColor.rgb, texColor.a * (1.0 - max(outlineAlpha, 1.0 - circleAlpha)));
-                color = fixed4(lerp(color.rgb, float3(1,1,1), outlineAlpha),  max(color.a, outlineAlpha));
-                color = fixed4(lerp(color, 1 - color.rgb, smoothstep(0.0, 1.0, _InversionAmount)), color.a);
+                color = fixed4(lerp(color.rgb, float3(1,1,1), outlineAlpha), max(color.a, outlineAlpha * _PopupProgress));
+                color = fixed4(lerp(color.rgb, 1 - color.rgb, smoothstep(0.0, 1.0, _InversionAmount)), color.a);
                 color.a *= UnityGet2DClipping(IN.worldPosition.xy, _ClipRect);
+                
                 return color;
             }
             ENDCG

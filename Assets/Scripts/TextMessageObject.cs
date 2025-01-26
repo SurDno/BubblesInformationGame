@@ -1,14 +1,15 @@
+using Interfaces;
 using UnityEngine;
 
 [System.Serializable]
-public struct TextMessageObject
+public struct TextMessageObject : IInformationSource
 {
-    [SerializeField] string _text;
-    [SerializeField] bool _isVictim;
-    [SerializeField] Information _textInformation;
+    [SerializeField] private string _text;
+    [SerializeField] private bool _isVictim;
+    [SerializeField] private Information _textInformation;
 
-    public string Text { get { return _text; } }
-    public bool IsVictim { get { return _isVictim; } }
+    public string Text => _text;
+    public bool IsVictim => _isVictim;
 
-    public Information TextInformation { get { return _textInformation; } }
+    public Information GetInformation() => _textInformation;
 }
