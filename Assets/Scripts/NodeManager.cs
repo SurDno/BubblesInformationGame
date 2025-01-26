@@ -9,8 +9,14 @@ public class NodeManager : Singleton<NodeManager> {
 	
 	private List<MindMapNode> _nodes = new();
 
+	public List<Information> DELETE_ME;
+
 	private void Awake() {
-		AddNode(initialNode, new Vector2(500, 500));
+		//AddNode(initialNode, new Vector2(500, 500));
+		foreach (var information in DELETE_ME) {
+			if (information.IsConclusion) continue;
+			AddNode(information);
+		}
 	}
 	
 	public MindMapNode AddNode(Information info, Vector2? position = null) {

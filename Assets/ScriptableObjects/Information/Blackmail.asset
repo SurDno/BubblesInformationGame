@@ -10,14 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bee643dee328a1c41a8abccbb6fed464, type: 3}
-  m_Name: NotComingHome
+  m_Name: Blackmail
   m_EditorClassIdentifier: 
-  text: At one point victim messages they're not coming home, in perfect grammar
-    and punctuation.
-  sprite: {fileID: 21300000, guid: a1a2f26b809389a478a6207fcb50f54c, type: 3}
+  text: The victim was being blackmailed and was going to meet someone and give them
+    cash.
+  sprite: {fileID: 21300000, guid: ad1749e09789a684db378e8f8129239a, type: 3}
   isTrue: 1
   isConclusion: 0
   connectedInfo:
-  - {fileID: 11400000, guid: 5a231c813d73e0142b4b644dbc7b3858, type: 2}
+  - {fileID: 11400000, guid: bcc8ec04ef09aa045b54c8b349568d58, type: 2}
+  - {fileID: 11400000, guid: 2da795cd7fb83324b9b1f37ab03daae0, type: 2}
   conclusions:
-  - {fileID: 11400000, guid: 4a4f4463b69b0b54da5ae5033914a331, type: 2}
+  - {fileID: 11400000, guid: f7104a5f1ecf9c343ba03b01a9913771, type: 2}
+  prereqs: []

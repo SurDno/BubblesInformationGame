@@ -10,11 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bee643dee328a1c41a8abccbb6fed464, type: 3}
-  m_Name: Evening
+  m_Name: MedsMix
   m_EditorClassIdentifier: 
-  text: Victim mentions plans in the evening but expects them to be over by 11PM.
-  sprite: {fileID: 21300000, guid: bf0627026ec2f2e44b811d0725df76ff, type: 3}
+  text: The victim has been taking several different medication in a mix.
+  sprite: {fileID: 21300000, guid: 2c3c83e17140c9245955d413355187ee, type: 3}
   isTrue: 1
   isConclusion: 0
-  connectedInfo: []
-  conclusions: []
+  connectedInfo:
+  - {fileID: 11400000, guid: d33c109299bfded47ba23c890dc53190, type: 2}
+  conclusions:
+  - {fileID: 11400000, guid: 766a0099f61954d4990eb85a356d83a7, type: 2}
+  prereqs: []

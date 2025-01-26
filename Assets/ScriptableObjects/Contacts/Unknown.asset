@@ -10,19 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 76439df87adb3544d91e05cee0c677b3, type: 3}
-  m_Name: ContactA 2
+  m_Name: Unknown
   m_EditorClassIdentifier: 
-  _contactName: Osama Bin Laden
+  _contactName: Unknown
   _contactHistory:
-  - _text: What are You Doing tonight?
+  - _text: i ain't a pharmacy and not gonna give shit away for free, either pay up
+      or go get that at a doctor's office
     _isVictim: 0
     _textInformation: {fileID: 0}
-  - _text: I'm Having Breakfast
+  - _text: come on dude, we have been doing this for years. i will get your money
+      in a few days, you know i need this.
     _isVictim: 1
-    _textInformation: {fileID: 0}
-  - _text: Why are you having Breakfast for dinner?
+    _textInformation: {fileID: 11400000, guid: d33c109299bfded47ba23c890dc53190, type: 2}
+  - _text: aight, but that's the last time i'm doing that
     _isVictim: 0
-    _textInformation: {fileID: 0}
-  - _text: Get off my case, I'm Hungry
-    _isVictim: 1
     _textInformation: {fileID: 0}

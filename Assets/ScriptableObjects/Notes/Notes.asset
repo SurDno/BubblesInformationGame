@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b22c237b8172277408b11f590c22ad75, type: 3}
+  m_Name: Notes
+  m_EditorClassIdentifier: 
+  noteObjects:
+  - _title: baby, did you forget to take your meds
+    _content: '                                                                                                                      
+      lamotrigine - monday wednesday friday. Valporic acid - saturday sunday'
+    _information: {fileID: 11400000, guid: 788fa6f084315b94db6c0389af705aed, type: 2}

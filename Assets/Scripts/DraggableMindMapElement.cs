@@ -49,6 +49,7 @@ public abstract class DraggableMindMapElement : DraggableElement {
 		Destroy(_placeholder);
 
 		if (GetInformation() == null) {
+			src.PlayOneShot(_mindMapFailure);
 			HintManager.Instance.ShowErrorMessage();
 			SFXManager.PlaySound(AudioClipError, AudioGroupError, AudioVolume);
             return;
@@ -61,6 +62,7 @@ public abstract class DraggableMindMapElement : DraggableElement {
 		}
 
 		NodeManager.Instance.AddNode(GetInformation());
+		src.PlayOneShot(_mindMapSuccess);
 	}
 
 	protected abstract Information GetInformation();
