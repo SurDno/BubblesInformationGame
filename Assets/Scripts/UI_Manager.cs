@@ -9,9 +9,10 @@ public class UI_Manager : MonoBehaviour
 
     public void OpenMenu(GameObject menuToOpen)
     {
+        Debug.Log("OpenMenu");
         currentMenu.SetActive(false);
-        currentMenu = menuToOpen;
         previousMenu = currentMenu;
+        currentMenu = menuToOpen;
         currentMenu.SetActive(true);
 
         if(menuToOpen == rootMenu) BackButton.SetActive(false);

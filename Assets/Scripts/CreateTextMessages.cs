@@ -3,21 +3,31 @@ using UnityEngine.UI;
 
 public class CreateTextMessages : MonoBehaviour
 {
-    [SerializeField] private ContactObject contact;
+    [SerializeField] private ContactObject mContact;
     [SerializeField] private Transform textMessageParent;
     [SerializeField] private Transform _otherPersonMessagePrefab;
     [SerializeField] private Transform _victimMessagePrefab;
     // Start is called before the first frame update
     private void Start()
     {
-        CreateMessages();
+        //CreateMessages();
+    }
+
+    public ContactObject Contact
+    {
+        get { return mContact; }
+        set 
+        { 
+            mContact = value;
+            CreateMessages();
+        }
     }
 
     private void CreateMessages(){
         // loop through all messages and create the message objects
-        for(var i = 0; i < contact.ContactHistory.Length; i++)
+        for(int i = 0; i < mContact.ContactHistory.Length; i++)
         {
-            var _message = contact.ContactHistory[i];
+            var _message = mContact.ContactHistory[i];
             TextMessage _textMessage;
             
             var prefab = _message.IsVictim ? _victimMessagePrefab : _otherPersonMessagePrefab;
